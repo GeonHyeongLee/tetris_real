@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS // VS °æ°í ¶§¹®¿¡ Àû¾î³õÀº°ÍÀÓ
+#define _CRT_SECURE_NO_WARNINGS // VS ê²½ê³  ë•Œë¬¸ì— ì ì–´ë†“ì€ê²ƒì„
 
 #ifndef __KEY_CODE_H__
 #define __KEY_CODE_H__
@@ -7,14 +7,14 @@
 #include <stdint.h>
 
 #ifdef __MSC__
-#include <conio.h>  // _getch(), _Kbhit qqq ÀÌ½Ä¼ºÀ» À§ÇØ Á¦°ÅÇÏÀÚ
+#include <conio.h>  // _getch(), _Kbhit qqq ì´ì‹ì„±ì„ ìœ„í•´ ì œê±°í•˜ì
 #endif
 
-#define EXT_CODE_1		(0x00) // È®ÀåÅ°°¡ 00ÀÎ Å°°ªÀÌ ÀÖ°í.. F1, F2, F3
-#define EXT_CODE_2		(0xE0) // È®ÀåÅ°°¡ E0ÀÎ Å°°ªÀÌ ÀÖ´Ù.. Up, Down, Left, Right..
+#define EXT_CODE_1		(0x00) // í™•ì¥í‚¤ê°€ 00ì¸ í‚¤ê°’ì´ ìˆê³ .. F1, F2, F3
+#define EXT_CODE_2		(0xE0) // í™•ì¥í‚¤ê°€ E0ì¸ í‚¤ê°’ì´ ìˆë‹¤.. Up, Down, Left, Right..
 
 // 0,1,2,...9
-#define KEY_0			(0x30) // Decimal 48  // Å°ÆĞµåÀÇ 0°ú ÀÌ qwerÀ§¿¡ ÀÖ´Â 0°ú´Â Å°°ªÀÌ ´Ù¸£´Ù.
+#define KEY_0			(0x30) // Decimal 48  // í‚¤íŒ¨ë“œì˜ 0ê³¼ ì´ qwerìœ„ì— ìˆëŠ” 0ê³¼ëŠ” í‚¤ê°’ì´ ë‹¤ë¥´ë‹¤.
 #define KEY_1			(KEY_0+1) // 49
 #define KEY_2			(KEY_0+2) // 50
 #define KEY_3			(KEY_0+3) // 51
@@ -28,7 +28,7 @@
 // a,b,c,d... z
 #define KEY_a           (0x61)
 #define KEY_b           (KEY_a+1)
-#define KEY_c           (KEY_a+2) // KEY_a+1, KEY_a+2, KEY_a+3, ¿Í °°ÀÌ ³ª°£´Ù.
+#define KEY_c           (KEY_a+2) // KEY_a+1, KEY_a+2, KEY_a+3, ì™€ ê°™ì´ ë‚˜ê°„ë‹¤.
 #define KEY_d           (KEY_a+3)
 #define KEY_e           (KEY_a+4)
 #define KEY_f           (KEY_a+5)
@@ -56,7 +56,7 @@
 // A,B,C,D,...Z
 #define KEY_A           (KEY_a-0x20)
 #define KEY_B           (KEY_b-0x20)
-#define KEY_C           (KEY_c-0x20) // KEY_a-0x20, KEY_b-0x20, KEY_c-0x20,.. °ú °°ÀÌ ³ª°£´Ù.
+#define KEY_C           (KEY_c-0x20) // KEY_a-0x20, KEY_b-0x20, KEY_c-0x20,.. ê³¼ ê°™ì´ ë‚˜ê°„ë‹¤.
 #define KEY_D           (KEY_d-0x20)
 #define KEY_E           (KEY_e-0x20)
 #define KEY_F           (KEY_f-0x20)
@@ -88,11 +88,11 @@
 #define KEY_F4			(0x3E | (EXT_CODE_1 << 8)) // 003E
 #define KEY_F5			(0x3F | (EXT_CODE_1 << 8))
 #define KEY_F6			(0x40 | (EXT_CODE_1 << 8))
-#define KEY_F7			(0x41 | (EXT_CODE_1 << 8)) // 0x41°ú °ªÀÌ °ãÄ£´Ù?
+#define KEY_F7			(0x41 | (EXT_CODE_1 << 8)) // 0x41ê³¼ ê°’ì´ ê²¹ì¹œë‹¤?
 #define KEY_F8			(0x42 | (EXT_CODE_1 << 8))
 #define KEY_F9			(0x43 | (EXT_CODE_1 << 8))
 #define KEY_F10			(0x44 | (EXT_CODE_1 << 8))
-#define KEY_F11			(0x85 | (EXT_CODE_2 << 8)) // 45°¡ ¾Æ´Ï´Ù! 85? 57? ´ëÃ¼ ¸ğ¾ß? E085
+#define KEY_F11			(0x85 | (EXT_CODE_2 << 8)) // 45ê°€ ì•„ë‹ˆë‹¤! 85? 57? ëŒ€ì²´ ëª¨ì•¼? E085
 #define KEY_F12			(0x86 | (EXT_CODE_2 << 8))
 
 
@@ -111,7 +111,7 @@
 #define KEY_RIGHT       (0x4D | (EXT_CODE_2 << 8))
 
 // ESC, ENTER, SAPCE
-#define KEY_ESC         (0x1B) // ESC°¡ Æ¯¼öÅ°°¡ ¾Æ´Ï¾ú¾î?
+#define KEY_ESC         (0x1B) // ESCê°€ íŠ¹ìˆ˜í‚¤ê°€ ì•„ë‹ˆì—ˆì–´?
 #define KEY_ENTER       (0x0D)
 #define KEY_SPACE       (0x20)
 
