@@ -17,13 +17,13 @@ typedef union _key_t {
 } key_t;
 
 // qqq(1)
-// ÇÔ¼ö ÀÌ¸§À» read_key > key_read·Î ¹Ù²Ş
+// í•¨ìˆ˜ ì´ë¦„ì„ read_key > key_readë¡œ ë°”ê¿ˆ
 void key_init();
 //uint16_t read_key();
 uint16_t key_get_code();
 //void print_key(uint16_t key_val);
 void key_print(uint16_t key_val);
-//void key_write(); // ÀÔ·ÂÀåÄ¡ÀÌ±â ¶§¹®¿¡ write´Â ÇÊ¿ä¾ø´Ù.
+//void key_write(); // ì…ë ¥ì¥ì¹˜ì´ê¸° ë•Œë¬¸ì— writeëŠ” í•„ìš”ì—†ë‹¤.
 
 uint16_t key_read();
 
