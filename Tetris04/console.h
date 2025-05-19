@@ -33,3 +33,5 @@ void console_set_size(windows_console_t* console, uint32_t cols, uint32_t rows);
 void console_resize(const windows_console_t* console, uint32_t cols, uint32_t rows);
 
 void console_display_info(const windows_console_t* console);
+
+void console_init(windows_console_t* console);
