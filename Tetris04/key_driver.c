@@ -1,6 +1,6 @@
 #include "key_driver.h"
 
-// _kbhit()= ¾î¶² ¹öÆ°ÀÌ¶óµµ ´­·ÁÁ³³ª¿ä? Were any buttons pressed?
+// _kbhit()= ì–´ë–¤ ë²„íŠ¼ì´ë¼ë„ ëˆŒë ¤ì¡Œë‚˜ìš”? Were any buttons pressed?
 bool any_key_pressed() {
     bool result = false;
 #ifdef __MSC__
@@ -19,14 +19,14 @@ uint8_t get_key() {
     result = _getch();
 #endif
 #ifdef __ESP32__
-    result = digitalRead(); // parameter¸¦ ¹»·Î ÁÖ³ª? ÀÚ²Ù ÀÏÀÌ Ä¿Áö´Âµ¥? ^^
+    result = digitalRead(); // parameterë¥¼ ë­˜ë¡œ ì£¼ë‚˜? ìê¾¸ ì¼ì´ ì»¤ì§€ëŠ”ë°? ^^
 #endif
     return result;
 }
 
 
 void key_init() {
-    // MSC¿¡¼­´Â µüÈ÷ ÃÊ±âÈ­ ÇÒ°ÍÀÌ ¾ø´Ù.
+    // MSCì—ì„œëŠ” ë”±íˆ ì´ˆê¸°í™” í• ê²ƒì´ ì—†ë‹¤.
 }
 
 uint16_t key_get_code() {
@@ -39,14 +39,14 @@ uint16_t key_get_code() {
         }
         else {            
             key.bound.upper = key.bound.lower;
-            key.bound.lower = 0; // ÀÌ·¸°Ô ÇØµµ µÇ°í
-            //key.all >>= 8; // ÀÌ·¸°Ô ÇØµµ µÈ´Ù.
+            key.bound.lower = 0; // ì´ë ‡ê²Œ í•´ë„ ë˜ê³ 
+            //key.all >>= 8; // ì´ë ‡ê²Œ í•´ë„ ëœë‹¤.
             //key.bound.upper >> 8;
         }
     }
-    //return key.all; // ÀÌ·¸°Ô ÇÏ°Ô µÇ¸é return typeÀ» key_t·Î ÇØ¾ß ÇÏ´Âµ¥ 
-    // ¹Ş´Â ÇÔ¼ö¿¡¼­ ¿µ ºÒÆíÇÏ´Ù.
-    return key.all; // ±×³É uint16_t¸¦ µ¹·ÁÁÖ´Â°Ô ¹Ş´Â ÂÊ¿¡¼­ ÆíÇÏ´Ù.
+    //return key.all; // ì´ë ‡ê²Œ í•˜ê²Œ ë˜ë©´ return typeì„ key_të¡œ í•´ì•¼ í•˜ëŠ”ë° 
+    // ë°›ëŠ” í•¨ìˆ˜ì—ì„œ ì˜ ë¶ˆí¸í•˜ë‹¤.
+    return key.all; // ê·¸ëƒ¥ uint16_të¥¼ ëŒë ¤ì£¼ëŠ”ê²Œ ë°›ëŠ” ìª½ì—ì„œ í¸í•˜ë‹¤.
 }
 
 void key_print(uint16_t key_val) {
