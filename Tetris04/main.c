@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <windows.h>
 
+#include "setting.h"
 #include "blocks.h"
 #include "key_driver.h"
 
@@ -13,27 +14,6 @@
 
 #define RESIZE_COLS (DEFAULT_COLS-30) //=90
 #define RESIZE_ROWS 30
-
-//추가적으로 밝은 색상은 해당 값에 8을 더한 값으로 표현됩니다(예: 밝은 파랑은 9).
-typedef enum _color_t {
-    BLACK, //0
-    BLUE, // 1
-    GREEN,
-    CYAN,
-    RED,
-    PURPLE,
-    YELLOW,
-    WHITE,
-    GRAY,
-    LIGHT_BLUE,
-    LIGHT_GREEN,
-    LIGHT_CYAN,
-    LIGHT_RED,
-    LIGHT_PURBPLE,
-    LIGHT_YELLOW,
-    LIGHT_WHITE,
-} color_t;
-
 
 //추가적으로 밝은 색상은 해당 값에 8을 더한 값으로 표현됩니다(예: 밝은 파랑은 9).
 char* color_strings[16] = {
@@ -64,21 +44,7 @@ char* get_color_string(color_t color) {
     }
 }
 
-typedef struct _cursor_info_t {
-    uint32_t x;
-    uint32_t y;
-    bool is_hide;
-} cursor_info_t;
 
-typedef struct _windows_console_t {
-    uint32_t cols;
-    uint32_t rows;
-
-    color_t fore_color;
-    color_t back_color;
-
-    cursor_info_t cursor_info;
-} windows_console_t;
 
 void console_resize(const windows_console_t* console, uint32_t cols, uint32_t rows);
 
@@ -200,16 +166,6 @@ void console_display_info(const windows_console_t* console) {
     printf("[%d] Cursor (x,y,hide) = %d,%d,%d)\r\n", ++dummy_count, console->cursor_info.x, console->cursor_info.y, console->cursor_info.is_hide);
 }
 
-typedef struct _point_t {
-    uint32_t x;
-    uint32_t y;
-} point_t;
-
-typedef struct _cell_t {
-    point_t point; // cell의 위치
-    color_t color; // cell의 색상
-    cell_attributes_t att; // cell의 속성
-} cell_t;
 
 void cell_init(cell_t* cell, int x, int y, cell_attributes_t att, color_t color) {
     cell->point.x = x;
